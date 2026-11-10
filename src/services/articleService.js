@@ -20,7 +20,9 @@ async function checkResponse(response) {
     throw new Error(`${response.url} ${response.status}: ${await response.text()}`)
   }
 
-  return response.json()
+  const text = await response.text()
+
+  return text ? JSON.parse(text) : null
 }
 
 async function dataApiRequest(url, { headers, ...options } = {}) {
@@ -54,4 +56,27 @@ export async function createArticle({ title, body }) {
 export async function fetchArticles() {
   const rows = await dataApiRequest(`${ARTICLES_ENDPOINT}?order=date.desc`)
   return rows.map(rowToModel)
+}
+
+export async function updateArticle(id, { title, body }) {
+  const [row] = await dataApiRequest(`${ARTICLES_ENDPOINT}?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Prefer: 'return=representation'
+    },
+    body: JSON.stringify({ title, body })
+  })
+
+  if (!row) {
+    throw new Error('Article could not be updated')
+  }
+
+  return rowToModel(row)
+}
+
+export async function deleteArticle(id) {
+  await dataApiRequest(`${ARTICLES_ENDPOINT}?id=eq.${id}`, {
+    method: 'DELETE'
+  })
 }

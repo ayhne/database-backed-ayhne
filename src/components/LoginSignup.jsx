@@ -22,7 +22,7 @@ export default function LoginSignup({ onSignUp, onSignIn }) {
   }
 
   return (
-    <form className="LoginSignup" onSubmit={handleSubmit}>
+    <form className={`LoginSignup ${isSignUp ? 'signup' : 'signin'}`} onSubmit={handleSubmit}>
       <h1>Welcome to the Bare Bones Blog 🦴</h1>
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
 

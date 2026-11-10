@@ -9,10 +9,31 @@
 header {
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: rgb(69, 102, 150);
   color: white;
   grid-column: 1 / span 2;
   padding: 10px 15px;
+}
+
+.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  background-color: #f4f4f4;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid #1a1a1a;
+  display: inline-block;
+}
+
+.title .bone {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.title:hover .bone {
+  transform: rotate(15deg) scale(1.2);
 }
 
 form {
@@ -55,4 +76,52 @@ article .body {
   background-color: red;
   color: gold;
   padding: 5px;
+}
+
+.Blog {
+  background-image: url('/blog background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.dashboard-feature {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.dashboard-feature:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.dashboard-feature:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }

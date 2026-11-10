@@ -54,3 +54,23 @@ GRANT SELECT, INSERT ON article TO authenticated;
 GRANT SELECT, INSERT ON api.articles TO authenticated;
 
 CREATE OR REPLACE VIEW api.articles WITH (security_invoker = true) AS SELECT * FROM article;
+
+CREATE POLICY authenticated_update_own
+ON article
+FOR UPDATE
+TO authenticated
+USING (user_id = auth.user_id())
+WITH CHECK (user_id = auth.user_id());
+
+GRANT UPDATE ON article TO authenticated;
+GRANT UPDATE ON api.articles TO authenticated;
+
+CREATE POLICY authenticated_delete_own
+ON article
+FOR DELETE
+TO authenticated
+USING (user_id = auth.user_id());
+
+GRANT DELETE ON article TO authenticated;
+
+GRANT DELETE ON api.articles TO authenticated;
