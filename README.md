@@ -1,13 +1,16 @@
 # A Blog Starter App
+
 **a.k.a. Bare Bones Blog 🦴**
 
 _Adapted from Dr. Ray Toal’s original https://github.com/lmucs/blog-starter-app_
 
-This is a trivial blog app, built with [Vite](https://vite.dev/) and React, with the [React Compiler](https://react.dev/learn/react-compiler) enabled.
+Anne Sebastian
+LMU CMSI 2021 Web Application Development | Fall 2026
 
-It works entirely within memory, so reloads blow everything away except for the first two mock articles.
+Description:
+Hi there! This project is a database backed blog application implimented through React and Vite. The Bare Bone Blog application has expanded ability through the integration of a Neon PostgreSQL database so that users can signup/login and preserve their published articles under their account!
 
-This repo is designed for you to fork and extend with (1) better CSS and (2) a real back end, with authentication and a database.
+Previously the articles were stored locally in memory not it is stored in a shared database that can be accessed publically. In fact the articles stay published after the web app refreshes as well as when a user starts a new session (as long as they are logged into their created account!).
 
 ## Scripts
 
