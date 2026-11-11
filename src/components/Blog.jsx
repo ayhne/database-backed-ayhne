@@ -117,6 +117,7 @@ export default function Blog({ onSignOut }) {
       ) : (
         <Article article={article} />
       )}{' '}
+      <img src="snoopy.jpg" alt="snoopy writing in his journal" class="bottom-right-fixed" />
     </div>
   )
 }
